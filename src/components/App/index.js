@@ -1,25 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Messenger from "../Messenger";
-import { APIService } from "../../service/APIService";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "../../Page/Login";
+import ProtectedRoute from "./ProtectedRoute";
 
-const api = APIService.getInstance();
-
-const App = () => {
-  useEffect(() => {
-    async function login() {
-      const userInfo = await api.login({
-        username: "ivermin1123",
-        password: "1234",
-      });
-      console.log({ userInfo });
-    }
-    login();
-  }, []);
+function App() {
   return (
-    <div className="App">
-      <Messenger />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <ProtectedRoute exact path="/" component={Messenger} />
+          <Route path="/login" component={Login} />
+        </Switch>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
