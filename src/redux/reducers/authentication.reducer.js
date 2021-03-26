@@ -1,4 +1,5 @@
 import jwtDecode from "jwt-decode";
+import { userConstants } from "../constants";
 
 const initialState = {
   isLoggedIn: false,
@@ -19,23 +20,23 @@ if (user) {
 
 export default function authentication(state = initialState, action) {
   switch (action.type) {
-    case "LOGIN_REQUEST":
+    case userConstants.LOGIN_REQUEST:
       return {
         loggingIn: true,
       };
-    case "LOGIN_SUCCESS":
+    case userConstants.LOGIN_SUCCESS:
       return {
         ...state,
         isLoggedIn: true,
-        user: action.payload.user,
+        user: action.user,
       };
-    // case LOGIN_FAILURE:
-    //   return {
-    //     ...state,
-    //     isLoggedIn: false,
-    //     user: null,
-    //   };
-    case "LOGOUT":
+    case userConstants.LOGIN_FAILURE:
+      return {
+        ...state,
+        isLoggedIn: false,
+        user: null,
+      };
+    case userConstants.LOGOUT:
       return {
         ...state,
         isLoggedIn: false,

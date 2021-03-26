@@ -3,11 +3,10 @@ import ConversationSearch from "../ConversationSearch";
 import ConversationListItem from "../ConversationListItem";
 import Toolbar from "../Toolbar";
 import ToolbarButton from "../ToolbarButton";
-import axios from "axios";
 
 import "./ConversationList.css";
 
-import { logout } from "../../redux/actions/user.action";
+import { userActions } from "../../redux/actions/";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 export default function ConversationList(props) {
@@ -33,7 +32,7 @@ export default function ConversationList(props) {
   const history = useHistory();
   const handleLogOut = (e) => {
     e.preventDefault();
-    dispatch(logout());
+    dispatch(userActions.logout());
     history.push("/login");
   };
 
