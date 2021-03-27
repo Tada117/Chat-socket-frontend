@@ -8,6 +8,9 @@ import "antd/dist/antd.css";
 import { userActions } from "../redux/actions";
 
 import "./_login.scss";
+import bg1 from "../assets/cool-background2.png";
+import fbLogo from "../assets/images/fb-logo.svg";
+import ggLogo from "../assets/images/google-logo.svg";
 
 function Login() {
   const dispatch = useDispatch();
@@ -58,42 +61,52 @@ function Login() {
   };
   return (
     <div className="form-container">
-      {/* {alert.message && (
-        <div className={`alert ${alert.type}`}>{alert.message}</div>
-      )} */}
-      <div className="form-title">Login</div>
-      <form onSubmit={handleLogin} className="form-group">
-        <input
-          type="text"
-          placeholder="Enter Username"
-          className="input-field"
-          name="username"
-          value={username}
-          submitted={submitted}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          placeholder="Enter Password"
-          className="input-field"
-          name="password"
-          value={password}
-          submitted={submitted}
-          onChange={handleChange}
-        />
-        <button className="submit-btn">Login</button>
-        <div>
-          Not registered?{" "}
-          <Link
-            className="register"
-            to={{
-              pathname: "/register",
-            }}
-          >
-            Register Now
-          </Link>{" "}
+      <div className="form-left">
+        <form onSubmit={handleLogin} className="form-group">
+          <div className="form-title">Login</div>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            className="input-field"
+            name="username"
+            value={username}
+            submitted={submitted}
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            className="input-field"
+            name="password"
+            value={password}
+            submitted={submitted}
+            onChange={handleChange}
+          />
+          <button className="submit-btn">Login</button>
+          <div>
+            Not registered?{" "}
+            <Link
+              className="register"
+              to={{
+                pathname: "/register",
+              }}
+            >
+              Register Now
+            </Link>{" "}
+          </div>
+        </form>
+        <hr className="separator" data-content="Or Login With" />
+        <div className="login-options">
+          <img src={fbLogo} alt="" />
+          <img src={ggLogo} alt="" />
         </div>
-      </form>
+      </div>
+      <div
+        className="form-right"
+        // style={{ backgroundImage: `url(${bg1})` }}
+      >
+        <img src={bg1} alt="" />
+      </div>
     </div>
   );
 }

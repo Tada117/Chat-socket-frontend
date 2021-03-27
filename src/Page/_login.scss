@@ -1,107 +1,183 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cuprum&display=swap");
 .form-container {
-  background-color: rgb(168, 200, 236);
+  // background-color: rgb(181, 228, 11);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 600px;
+  width: 100%;
+  padding: 0 50px;
+  height: 90vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10px;
 
-  .form-title {
-    text-align: center;
-    font-family: "Cuprum", sans-serif;
-    font-weight: bold;
-    font-weight: 500;
-    font-size: 30px;
-    margin-bottom: 30px;
-  }
+  .form-left {
+    background-color: #a9c9ff;
+    background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
 
-  .form-group {
+    width: 40%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .input-field {
-    width: 280px;
-    height: 50px;
+    flex-direction: column;
+    border-radius: 5px 0 0 5px;
+    // align-items: center;
+    .form-title {
+      // text-align: center;
+      font-family: "Cuprum", sans-serif;
+      font-weight: bold;
+      font-weight: 500;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
 
-    font-family: "Cuprum", sans-serif;
-    font-weight: bold;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    border: none;
-    padding: 10px 0 10px;
-    background: #e8eef5;
-    text-align: center;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .input-field {
+      width: 280px;
+      height: 50px;
 
-    &:focus {
-      text-align: left;
+      font-family: "Cuprum", sans-serif;
+      font-weight: bold;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 0.5px solid rgb(134, 134, 134);
+      padding: 10px;
+      background: none;
+      text-align: center;
+      transition: 0.2s ease-in-out;
+
+      &:focus {
+        text-align: left;
+        border-bottom: 0.5px solid black;
+      }
+    }
+    .submit-btn {
+      box-sizing: border-box;
+      border-radius: 0.2rem;
+
+      width: 280px;
+      height: 50px;
+
+      cursor: pointer;
+      font-family: "Cuprum", sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+
+      border: none;
+      transition: 0.2s ease-in-out;
+      background-color: #435fef;
+      color: white;
+
+      margin-bottom: 30px;
+
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
-  .submit-btn {
-    box-sizing: border-box;
-    border-radius: 0.2rem;
 
+  .select-gender {
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+    margin-bottom: 30px;
     width: 280px;
     height: 50px;
-
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 1px 3px -2px #9098a9;
     cursor: pointer;
     font-family: "Cuprum", sans-serif;
     font-weight: bold;
     font-size: 16px;
+    transition: all 150ms ease;
+    &:required:invalid {
+      color: #5a667f;
+    }
 
-    border: none;
-    transition: 0.2s ease-in-out;
-    background-color: #435fef;
-    color: white;
+    & option {
+      color: #223254;
 
-    margin-bottom: 30px;
-
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-
-    &:hover {
-      opacity: 0.8;
+      &:focus {
+        outline: none;
+        border-color: #0077ff;
+        box-shadow: 0 0 0 2px rgba(#0077ff, 0.2);
+      }
+    }
+  }
+  .form-right {
+    width: 60%;
+    border-radius: 0 5px 5px 0;
+    background: #f2f4ef;
+    display: flex;
+    align-items: center;
+    & img {
+      width: 100%;
+      height: auto;
     }
   }
 }
+.login-options {
+  display: flex;
 
-.select-gender {
-  -webkit-appearance: none;
-  padding: 7px 40px 7px 12px;
-  margin-bottom: 30px;
-  width: 280px;
-  height: 50px;
-  border: 1px solid #e8eaed;
-  border-radius: 5px;
-  background: white;
-  box-shadow: 0 1px 3px -2px #9098a9;
-  cursor: pointer;
-  font-family: "Cuprum", sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  transition: all 150ms ease;
-  &:required:invalid {
-    color: #5a667f;
-  }
+  align-items: center;
 
-  & option {
-    color: #223254;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 60%;
 
-    &:focus {
-      outline: none;
-      border-color: #0077ff;
-      box-shadow: 0 0 0 2px rgba(#0077ff, 0.2);
-    }
+  & img {
+    cursor: pointer;
+    width: 3rem;
   }
 }
 .register {
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
+}
+
+.separator {
+  margin-top: 20px;
+  width: 70%;
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+  &:before {
+    content: "";
+    // use the linear-gradient for the fading effect
+    // use a solid background color for a solid bar
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    // this is really the only tricky part, you need to specify the background color of the container element...
+    // color: #818078;
+    background-color: none;
+
+    background-image: linear-gradient(180deg, #f1a9ff 0%, #ffbbec 100%);
+  }
 }
