@@ -64,24 +64,30 @@ function Login() {
       <div className="form-left">
         <form onSubmit={handleLogin} className="form-group">
           <div className="form-title">Login</div>
-          <input
-            type="text"
-            placeholder="Enter Username"
-            className="input-field"
-            name="username"
-            value={username}
-            submitted={submitted}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            placeholder="Enter Password"
-            className="input-field"
-            name="password"
-            value={password}
-            submitted={submitted}
-            onChange={handleChange}
-          />
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder="Enter Username"
+              className="input-field"
+              name="username"
+              value={username}
+              submitted={submitted}
+              onChange={handleChange}
+            />
+            <span class="focus-border"></span>
+          </div>
+          <div className="input-group">
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="input-field"
+              name="password"
+              value={password}
+              submitted={submitted}
+              onChange={handleChange}
+            />
+            <span class="focus-border"></span>
+          </div>
           <button className="submit-btn">Login</button>
           <div>
             Not registered?{" "}
